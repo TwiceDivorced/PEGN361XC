@@ -43,7 +43,31 @@ int main()
     volumes.push(bentoniteVolume);
     volumes.push(bentoniteWaterVolume);
 
+    // calculate total mass and volume
+    float totalMass = 0;
+    float totalVolume = 0;
+
+    while (!masses.empty())
+    {
+        totalMass += masses.top();
+        masses.pop();
+    }
+
+    while (!volumes.empty())
+    {
+        totalVolume += volumes.top();
+        volumes.pop();
+    }
+
+    // calculate density, mix, and yield
+    float density = totalMass / totalVolume;                                  // lb/gal
+    float mix = (waterWeight + bentoniteWaterWeight) / POUNDS_PER_SACK * 100; // %
+    float yield = totalVolume * 231 / 1728;                                   // ft^3
+
     std::cout
-        << "Hello, World!" << std::endl;
+        << "With the given parameters," << std::endl
+        << "Slurry Density = " << density << " ppg" << std::endl
+        << "Percent Mix = " << mix << " %" << std::endl
+        << "Yield = " << yield << " ft^3" << std::endl;
     return 0;
 }
