@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.10)
+
+PROJECT(PEGN361XC)
+
+SET(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+SET(CMAKE_CXX_EXTENSIONS OFF)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror")
+
+
+# Find the required packages
+SET(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+SET(SOURCE_FILES
+    ${SOURCE_DIR}/main.cpp
+)
+
+# Add the executable target
+ADD_EXECUTABLE(${PROJECT_NAME} ${SOURCE_FILES})
