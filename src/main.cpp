@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <stack>
 
@@ -64,10 +65,11 @@ int main()
     float mix = (waterWeight + bentoniteWaterWeight) / POUNDS_PER_SACK * 100; // %
     float yield = totalVolume * 231 / 1728;                                   // ft^3
 
-    std::cout
-        << "With the given parameters," << std::endl
-        << "Slurry Density = " << density << " ppg" << std::endl
-        << "Percent Mix = " << mix << " %" << std::endl
-        << "Yield = " << yield << " ft^3" << std::endl;
+    std::cout << std::endl
+              << std::setprecision(2) << std::fixed
+              << "With the given parameters," << std::endl
+              << "\tSlurry Density = " << density << " ppg" << std::endl
+              << "\tPercent Mix = " << mix << " %" << std::endl
+              << "\tYield = " << yield << " ft^3" << std::endl;
     return 0;
 }
